@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Kinobillet bestilling</h3>
+            <form class="form" id="billetForm" method="post">
+                <div class="form-group">
+                    <label for="filmer">Velg film</label>
+                    <select id="filmer" class="form-control" required>
+                        <option value="wonka">Willy Wonka</option>
+                        <option value="hungerGames">Hunger games</option>
+                        <option value="insideJob">Inside Job</option>
+                        <option value="starWars">Star wars</option>
+                    </select>
+                    <span id="filmer-error" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="antall">Antall</label>
+                    <input id="antall" name="antall" type="number" class="form-control" value="">
+                    <span id="antall-error" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="forNavn">Fornavn: </label>
+                    <input id="forNavn" name="forNavn" type="text" class="form-control" value=""  placeholder="Fornavn">
+                    <span id="forNavn-error" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="etterNavn">Etternavn: </label>
+                    <input id="etterNavn" name="etterNavn" type="text" class="form-control" value="" placeholder="Etternavn">
+                    <span id="etternavn-error" class="error"></span>
+                </div>
+                <div class="form-group">
+                    <label for="telefon">Telefon: </label>
+                    <input id="telefon" name="telefon" type="number" class="form-control" value="" placeholder="12345678">
+                    <span id="telefon-error" class="error"></span>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="epost">Epost: </label>
+                    <input id="epost" name="epost" type="email" class="form-control" value="" placeholder="Epost@Exempel.no">
+                    <span id="epost-error" class="error"></span>
+                </div>
+                <button class="btn btn-primary btn-lg" id="submitBtn"  type="submit">Bestill</button>
+                <button class="btn btn-danger btn-lg" onclick="slettbilleter()" id="deleteBtn">slett billeter</button>
+                <a href="h2-console" target="_blank" class="btn btn-info btn-lg" role="button">H2 Console</a>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <h3>Alle billeter</h3>
+            <div class="container">
+                <table class="table table-striped"id="ut">
+                    <th scope="row">Film</th>
+                    <th scope="row">Antall</th>
+                    <th scope="row">Fornavn</th>
+                    <th scope="row">Etternavn</th>
+                    <th scope="row">Telefonnr.</th>
+                    <th scope="row">E-postadresse</th>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script type="application/javascript" src="index.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#billetForm').on('submit', function(e) {
+            kinoBilleter();
+            e.preventDefault();
+        });
+
+        $('#deleteBtn').on('click', function(e) {
+            slettbilleter();
+            e.preventDefault();
+        });
+    });
+</script>
+</body>
+</html>
