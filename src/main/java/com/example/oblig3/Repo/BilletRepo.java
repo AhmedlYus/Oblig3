@@ -18,7 +18,7 @@ public class BilletRepo {
     }
 
     public List<Billett> hentBilleter() {
-        String sql = "SELECT * FROM Billet";
+        String sql = "SELECT * FROM Billet GROUP BY etternavn";
         List<Billett> alleBilleter = db.query(sql, new BeanPropertyRowMapper<>(Billett.class));
         return alleBilleter;
     }

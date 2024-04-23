@@ -8,7 +8,7 @@ const blankt = () => {
 };
 const validering = (film, antall, fornavn, etternavn, telefon, epost) => {
     const visError = (elementId, melding) => {
-        const errorSpan = $(`#${elementId}-error`);
+        const errorSpan = $(`#${ElementId}-error`);
         errorSpan.text(melding);
         errorSpan.toggleClass('text-danger', melding !== '');
         errorSpan.toggleClass('invalid-feedback', melding !== '');
