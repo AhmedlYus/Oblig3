@@ -1,4 +1,4 @@
-Oslomet Brukernavn : ahyus1798
+Oslomet Brukernavn : ahyus1798 Youtube : https://www.youtube.com/watch?v=-F6kVsLu1Yg
 Github brukernavn : Ahmedlyus
 git repo- link https://github.com/AhmedlYus/Oblig3.
 Fult navn : Ahmed Liban Yusuf.
