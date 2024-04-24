@@ -1,27 +1,23 @@
-const endreBillet =() =>{
-    kinoBilleter();
-    const id = window.location.search.substring(1);
-    const url = "/endreEnBillet?="+ id;
-    $.get("/endreEnBillet?="+ id, function (bilett){
-        $("#id").val(bilett.id);
-        $("#filmer").val(bilett.film);
-        $("#antall").val(bilett.antall);
-        $("#forNavn").val(bilett.fornavn);
-        $("#etterNavn").val(bilett.etternavn);
-        $("#telefon").val(bilett.telefon);
-        $("#epost").val(bilett.epost);
-    })
-    const bilett = {
-        id : $("#id").val(),
-        film: $("#filmer").val(),
-        antall: $("#antall").val(),
-        fornavn: $("#forNavn").val(),
-        etternavn: $("#etterNavn").val(),
-        telefon: $("#telefon").val(),
-        epost: $("#epost").val(),
+const endreBillet = () => {
+    const id = $("#id").val();
+    const film = $("#filmer").val();
+    const antall = $("#antall").val();
+    const fornavn = $("#forNavn").val();
+    const etternavn = $("#etterNavn").val();
+    const telefon = $("#telefon").val();
+    const epost = $("#epost").val();
 
-    }
-    $.post("/endreEnBillet", bilett, function (){
-        window.location.href='index.html';
+    const billett = {
+        id: id,
+        film: film,
+        antall: antall,
+        fornavn: fornavn,
+        etternavn: etternavn,
+        telefon: telefon,
+        epost: epost,
+    };
+
+    $.post("/endreEnBillet", billett, function () {
     });
-}
+    window.location.href = 'index.html';
+};
