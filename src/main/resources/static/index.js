@@ -94,11 +94,23 @@ const getBillet = () => {
 const formaterData = (billeter) => {
     let ut = "<table><tr><th>Film</th><th>Antall</th><th>Fornavn</th><th>Etternavn</th><th>Telefon</th><th>Epost</th></tr>";
     for (const billet of billeter) {
-        ut += "<tr><td>" + billet.film + "</td><td> " + billet.antall + "</td><td> " + billet.fornavn + "</td><td> " + billet.etternavn + "</td><td> " + billet.telefon + "</td><td> " + billet.epost + "</td></tr>";
+        ut += "<tr><td>" + billet.film + "</td><td> " + billet.antall + "</td>" +
+            "<td> " + billet.fornavn + "</td><td> " + billet.etternavn + "</td>" +
+            "<td> " + billet.telefon + "</td><td> " + billet.epost + "</td>" +
+            "<td><a class='btn btn-primary' href='EndreBillet.html?id="+billet.id+"'>Endre</a></td>" +
+            "<td><button class='btn btn-danger' onclick='slettEnBillet("+billet.id+")'>Slett</button></td></tr>";
+
     }
     ut += "</table>";
     $("#ut").html(ut);
 };
+const slettEnBillet =(id) =>{
+    const url = "/slettEnBillet?id="+id;
+    $.get(url, function (){
+        window.location.href = 'index.html';
+        getBillet();
+    })
+}
 const slettbilleter = () => {
     $.get("/slett", function (data){
        getBillet();

@@ -9,8 +9,9 @@
 <div class="container">
     <div class="row">
         <div class="col-md-4">
-            <h3>Kinobillet bestilling</h3>
+            <h3>Endre Billet</h3>
             <form class="form" id="billetForm" onsubmit="return false">
+                <input type="hidden" id="id">
                 <div class="form-group">
                     <label for="filmer">Velg film</label>
                     <select id="filmer" class="form-control" required>
@@ -49,37 +50,19 @@
                 </div>
                 <button class="btn btn-primary btn-lg" id="submitBtn"  type="submit">Bestill</button>
                 <button class="btn btn-danger btn-lg" onclick="slettbilleter()" id="deleteBtn">slett billeter</button>
-                <a href="h2-console" target="_blank" class="btn btn-info btn-lg" role="button">H2 Console</a>
             </form>
-        </div>
-        <div class="col-md-4">
-            <h3>Alle billeter</h3>
-            <div class="container">
-                <table class="table table-striped"id="ut">
-                    <th scope="row">Film</th>
-                    <th scope="row">Antall</th>
-                    <th scope="row">Fornavn</th>
-                    <th scope="row">Etternavn</th>
-                    <th scope="row">Telefonnr.</th>
-                    <th scope="row">E-postadresse</th>
-                </table>
-            </div>
         </div>
     </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script type="application/javascript" src="index.js"></script>
+<script type="application/javascript" src="Endre.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {
         $('#billetForm').on('submit', function(e) {
-            kinoBilleter();
+            endreBillet();
             e.preventDefault();
         });
 
-        $('#deleteBtn').on('click', function(e) {
-            slettbilleter();
-            e.preventDefault();
-        });
     });
 </script>
 </body>

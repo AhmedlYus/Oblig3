@@ -7,15 +7,17 @@ public class Billett {
     private String etternavn;
     private String telefon;
     private String epost;
+    private int billet_id;
     public Billett(){
     }
-    public Billett(String film, int antall, String fornavn, String etternavn, String telefon, String epost) {
+    public Billett(String film, int antall, String fornavn, String etternavn, String telefon, String epost, int billet_id) {
         this.film = film;
         this.antall = antall;
         this.fornavn = fornavn;
         this.etternavn = etternavn;
         this.telefon = telefon;
         this.epost = epost;
+        this.billet_id = billet_id;
     }
 
     public String getFilm() {
@@ -64,5 +66,13 @@ public class Billett {
 
     public void setEpost(String epost) {
         this.epost = epost;
+    }
+
+    public int getId() {
+        return billet_id;
+    }
+
+    public void setId(int id) {
+        this.billet_id = billet_id;
     }
 }

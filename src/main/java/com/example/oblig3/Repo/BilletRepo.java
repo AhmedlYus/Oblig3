@@ -18,7 +18,7 @@ public class BilletRepo {
     }
 
     public List<Billett> hentBilleter() {
-        String sql = "SELECT * FROM Billet GROUP BY etternavn";
+        String sql = "SELECT * FROM Billet ORDER BY etternavn";
         List<Billett> alleBilleter = db.query(sql, new BeanPropertyRowMapper<>(Billett.class));
         return alleBilleter;
     }
@@ -26,5 +26,18 @@ public class BilletRepo {
     public void slettAlle (){
         String sql = "DELETE FROM Billet";
         db.update(sql);
+    }
+    public Billett hentEnBillett(int id){
+        String sql = "SELECT * FROM Billet WHERE billett_id=?";
+        Billett Billet = db.queryForObject(sql, BeanPropertyRowMapper.newInstance(Billett.class), id);
+        return Billet;
+    }
+    public void endreEnBillet(Billett innBillet){
+        String sql = "UPDATE Billet SET film=?, antall=?, fornavn=?, etternavn=?, telefon=?, epost=? WHERE billett_id=?";
+        db.update(sql, innBillet.getFilm(), innBillet.getAntall(), innBillet.getFornavn(), innBillet.getEtternavn(), innBillet.getTelefon(), innBillet.getEpost(), innBillet.getId());
+    }
+    public void slettEnBillet(int id){
+        String sql = "DELETE FROM Billet WHERE billett_id=?";
+        db.update(sql, id);
     }
 }
