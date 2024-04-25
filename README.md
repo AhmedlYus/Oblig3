@@ -1,7 +1,15 @@
-Oslomet Brukernavn : ahyus1798 Youtube : https://www.youtube.com/watch?v=-F6kVsLu1Yg
+Oslomet Brukernavn : ahyus1798 Youtube : 
+
+[https://www.youtube.com/watch?v=-F6kVsLu1Yg](https://youtu.be/3UhJ31Q1HEo)
+
+
 Github brukernavn : Ahmedlyus
 git repo- link https://github.com/AhmedlYus/Oblig3.
-Fult navn : Ahmed Liban Yusuf.
+
+
+Fult navn : Ahmed Liban Yusuf. studentID : 385539
+
+
 this application runs on a local website, with serverport:8080
 Last obligatory assigment in DATA1700 / Webdevelopment, 
 Program spesifications - 
