@@ -7,17 +7,18 @@ public class Billett {
     private String etternavn;
     private String telefon;
     private String epost;
-    private int billet_id;
-    public Billett(){
-    }
-    public Billett(String film, int antall, String fornavn, String etternavn, String telefon, String epost, int billet_id) {
+    private int billett_id;
+
+    public Billett() {}
+
+    public Billett(String film, int antall, String fornavn, String etternavn, String telefon, String epost, int billett_id) {
         this.film = film;
         this.antall = antall;
         this.fornavn = fornavn;
         this.etternavn = etternavn;
         this.telefon = telefon;
         this.epost = epost;
-        this.billet_id = billet_id;
+        this.billett_id = billett_id;
     }
 
     public String getFilm() {
@@ -68,11 +69,11 @@ public class Billett {
         this.epost = epost;
     }
 
-    public int getId() {
-        return billet_id;
+    public int getBillett_id() {
+        return billett_id;
     }
 
-    public void setId(int id) {
-        this.billet_id = billet_id;
+    public void setBillett_id(int billett_id) {
+        this.billett_id = billett_id;
     }
 }

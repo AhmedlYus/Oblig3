@@ -13,14 +13,14 @@
             <form class="form" id="billetForm" onsubmit="return false">
                 <input type="hidden" id="id">
                 <div class="form-group">
-                    <label for="filmer">Velg film</label>
-                    <select id="filmer" class="form-control" required>
+                    <label for="film">Velg film</label>
+                    <select id="film" class="form-control" required>
                         <option value="wonka">Willy Wonka</option>
                         <option value="hungerGames">Hunger games</option>
                         <option value="insideJob">Inside Job</option>
                         <option value="starWars">Star wars</option>
                     </select>
-                    <span id="filmer-error" class="error"></span>
+                    <span id="film-error" class="error"></span>
                 </div>
                 <div class="form-group">
                     <label for="antall">Antall</label>
@@ -28,13 +28,13 @@
                     <span id="antall-error" class="error"></span>
                 </div>
                 <div class="form-group">
-                    <label for="forNavn">Fornavn: </label>
-                    <input id="forNavn" name="forNavn" type="text" class="form-control" value=""  placeholder="Fornavn">
-                    <span id="forNavn-error" class="error"></span>
+                    <label for="fornavn">Fornavn: </label>
+                    <input id="fornavn" name="fornavn" type="text" class="form-control" value=""  placeholder="Fornavn">
+                    <span id="fornavn-error" class="error"></span>
                 </div>
                 <div class="form-group">
-                    <label for="etterNavn">Etternavn: </label>
-                    <input id="etterNavn" name="etterNavn" type="text" class="form-control" value="" placeholder="Etternavn">
+                    <label for="etternavn">Etternavn: </label>
+                    <input id="etternavn" name="etternavn" type="text" class="form-control" value="" placeholder="Etternavn">
                     <span id="etternavn-error" class="error"></span>
                 </div>
                 <div class="form-group">
@@ -49,7 +49,6 @@
                     <span id="epost-error" class="error"></span>
                 </div>
                 <button class="btn btn-primary btn-lg" id="submitBtn"  type="submit" >Bestill</button>
-                <button class="btn btn-danger btn-lg" onclick="slettbilleter()" id="deleteBtn">slett billeter</button>
             </form>
         </div>
     </div>
@@ -57,13 +56,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="application/javascript" src="Endre.js"></script>
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('#billetForm').on('submit', function(e) {
-            endreBillet();
-            e.preventDefault();
-        });
-
-    });
 </script>
 </body>
 </html>

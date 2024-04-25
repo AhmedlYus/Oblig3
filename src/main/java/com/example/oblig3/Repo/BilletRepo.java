@@ -28,16 +28,17 @@ public class BilletRepo {
         db.update(sql);
     }
     public Billett hentEnBillett(int id){
+        System.out.println(id);
         String sql = "SELECT * FROM Billet WHERE billett_id=?";
-        Billett Billet = db.queryForObject(sql, BeanPropertyRowMapper.newInstance(Billett.class), id);
+        Billett Billet = db.queryForObject(sql, new BeanPropertyRowMapper<>(Billett.class), id);
         return Billet;
     }
     public void endreEnBillet(Billett innBillet){
         String sql = "UPDATE Billet SET film=?, antall=?, fornavn=?, etternavn=?, telefon=?, epost=? WHERE billett_id=?";
-        db.update(sql, innBillet.getFilm(), innBillet.getAntall(), innBillet.getFornavn(), innBillet.getEtternavn(), innBillet.getTelefon(), innBillet.getEpost(), innBillet.getId());
+        db.update(sql, innBillet.getFilm(), innBillet.getAntall(), innBillet.getFornavn(), innBillet.getEtternavn(), innBillet.getTelefon(), innBillet.getEpost(), innBillet.getBillett_id());
     }
     public void slettEnBillet(int id){
-        String sql = "DELETE FROM Billet WHERE billett_id=?";
-        db.update(sql, id);
+        String sql = "DELETE FROM Billet WHERE billett_id=" + id;
+        db.update(sql);
     }
 }

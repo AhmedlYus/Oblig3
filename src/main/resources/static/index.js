@@ -1,14 +1,18 @@
+$(function (){
+    getBillet();
+})
+
 const blankt = () => {
-    $('#filmer').val('');
+    $('#film').val('');
     $('#antall').val('');
-    $('#forNavn').val('');
-    $('#etterNavn').val('');
+    $('#fornavn').val('');
+    $('#etternavn').val('');
     $('#telefon').val('');
     $('#epost').val('');
 };
 const validering = (film, antall, fornavn, etternavn, telefon, epost) => {
     const visError = (elementId, melding) => {
-        const errorSpan = $(`#${ElementId}-error`);
+        const errorSpan = $(`#${elementId}-error`);
         errorSpan.text(melding);
         errorSpan.toggleClass('text-danger', melding !== '');
         errorSpan.toggleClass('invalid-feedback', melding !== '');
@@ -20,7 +24,7 @@ const validering = (film, antall, fornavn, etternavn, telefon, epost) => {
     };
     const filmVal = () => {
         if (film === ''){
-            visError('filmer', 'Velg en film');
+            visError('film', 'Velg en film');
             return false;
         }
         return true;
@@ -63,10 +67,10 @@ const validering = (film, antall, fornavn, etternavn, telefon, epost) => {
     return filmVal() && antallVal() && fornavnVal() && etternavnVal() && telefonVal() && epostVal();
 };
 const kinoBilleter = () => {
-    const film = $('#filmer').val();
+    const film = $('#film').val();
     const antall = $('#antall').val();
-    const fornavn = $('#forNavn').val();
-    const etternavn = $('#etterNavn').val();
+    const fornavn = $('#fornavn').val();
+    const etternavn = $('#etternavn').val();
     const telefon = $('#telefon').val();
     const epost = $('#epost').val();
 
@@ -97,15 +101,15 @@ const formaterData = (billeter) => {
         ut += "<tr><td>" + billet.film + "</td><td> " + billet.antall + "</td>" +
             "<td> " + billet.fornavn + "</td><td> " + billet.etternavn + "</td>" +
             "<td> " + billet.telefon + "</td><td> " + billet.epost + "</td>" +
-            "<td><a class='btn btn-primary' href='EndreBillet.html?id="+billet.id+"'>Endre</a></td>" +
-            "<td><button class='btn btn-danger' onclick='slettEnBillet("+billet.id+")'>Slett</button></td></tr>";
+            "<td><a class='btn btn-primary' href='EndreBillet.html?id="+billet.billett_id+"'>Endre</a></td>" +
+            "<td><button class='btn btn-danger' onclick='slettEnBillet("+billet.billett_id+")'>Slett</button></td>";
 
     }
     ut += "</table>";
     $("#ut").html(ut);
 };
-const slettEnBillet =(id) =>{
-    const url = "/slettEnBillet?id="+id;
+const slettEnBillet =(billet_id) =>{
+    const url = "/slettEnBillet?id="+billet_id;
     $.get(url, function (){
         window.location.href = 'index.html';
         getBillet();

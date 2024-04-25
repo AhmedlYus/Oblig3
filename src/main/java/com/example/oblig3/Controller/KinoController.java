@@ -28,14 +28,16 @@ public class KinoController {
         rep.slettAlle();
     }
 
-    @GetMapping("/endreEnBillet")
-    public void endreEnBillet(Billett innBillet){
+    @PostMapping("/endreEnBillet")
+    public void endreEnBillet(Integer id,Billett innBillet){
+        innBillet.setBillett_id(id);
         rep.endreEnBillet(innBillet);
     }
 
     @GetMapping("/hentEnBillet")
     public Billett hentEnBillet(@RequestParam("id") Integer id) {
         return rep.hentEnBillett(id);
+
     }
 
     @GetMapping("/slettEnBillet")
